@@ -113,7 +113,7 @@ CONTAINS
     USE W3ADATMD,  ONLY: HS, T0M1, T01, THM, BHD, TAUOX, TAUOY, PHIOC,&
          UBA, UBD, TAUWIX, TAUWIY, TUSX, TUSY, USSX,  &
          USSY, WLM, PHIBBL,TAUBBL, CHARN, TAUOCX,     &
-         TAUOCY, WNMEAN
+         TAUOCY, WNMEAN, CD
     USE W3ODATMD,  ONLY: NAPROC, IAPROC, UNDEF
     USE CONSTANTS, ONLY: PI, DERA
     !
@@ -185,6 +185,15 @@ CONTAINS
       IF (SND_FLD(IB_DO)%CL_FIELD_NAME == 'WW3_OCHA') THEN
         TMP(1:NSEAL) = 0.0
         WHERE(CHARN(1:NSEAL) /= UNDEF) TMP(1:NSEAL)=CHARN(1:NSEAL)
+        RLA_OASIS_SND(:,1) = DBLE(TMP(1:NSEAL))
+        CALL CPL_OASIS_SND(IB_DO, ID_OASIS_TIME, RLA_OASIS_SND, LL_ACTION)
+      ENDIF
+      !
+      ! Drag coefficient  (-)
+      ! ---------------------------------------------------------------------
+      IF (SND_FLD(IB_DO)%CL_FIELD_NAME == 'WW3_OCDN') THEN
+        TMP(1:NSEAL) = 0.0
+        WHERE(CD(1:NSEAL) /= UNDEF) TMP(1:NSEAL)=CD(1:NSEAL)
         RLA_OASIS_SND(:,1) = DBLE(TMP(1:NSEAL))
         CALL CPL_OASIS_SND(IB_DO, ID_OASIS_TIME, RLA_OASIS_SND, LL_ACTION)
       ENDIF

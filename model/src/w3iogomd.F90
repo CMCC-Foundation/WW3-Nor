@@ -1286,7 +1286,7 @@ CONTAINS
          SYY, SXY, PHS, PTP, PLP, PDIR, PSI, PWS,    &
          PWST, PNR, USERO, TUSX, TUSY, PRMS, TPMS,   &
          USSX, USSY, MSSX, MSSY, MSSD, MSCX, MSCY,   &
-         MSCD, CHARN,                                &
+         MSCD, CHARN, CD,                            &
          BHD, CGE, P2SMS, US3D, EF, TH1M, STH1M,     &
          TH2M, STH2M, HSIG, STMAXE, STMAXD,          &
          HCMAXE, HMAXE, HCMAXD, HMAXD, USSP, QP, PQP,&
@@ -2187,6 +2187,9 @@ CONTAINS
               ! user defined output
               USERO(JSEA,1) = HML(IX,IY)
               !USERO(JSEA,2) = COS(ALPHAL(JSEA)
+              ! Activate the following 2 lines to enable printing of drag coefficient
+              ! USERO(JSEA,1) = CD(JSEA)
+              ! USERO(JSEA,2) = 0.
             END IF
           END IF
         END IF

@@ -1983,7 +1983,20 @@ CONTAINS
             ! User defined...
           ELSE IF ( IFI .EQ. 10 ) THEN
             !CB WRITE (ENAME,'(A2,I2.2)') '.u', IFJ
-            CALL S2GRID(USERO(:,IFJ), X1)
+            !CALL S2GRID(USERO(:,IFJ), X1)
+            ! The following is the old-fashioned way to write the output
+            ! Please readapt if needed
+            WRITE (ENAME,'(A2,I2.2)') '.cd', IFJ
+            UNITS  = ''
+            NFIELD=1
+            WRITE (VARNM(1),'(A1,I2.2)') 'CD', IFJ
+            WRITE (VARNL(1),'(A12,I2.2)') 'Drag_coeff', IFJ
+            WRITE (VARNS(1),'(A12,I2.2)') 'Drag_coeff', IFJ
+            WRITE (VARNG(1),'(A12,I2.2)') 'Drag_coeff', IFJ
+            VARNC(1)=''
+            VARND(1)=''
+            VMIN = -9990
+            VMAX = 9990
           ELSE
             WRITE (NDSE,999) IFI, IFJ
             CALL EXTCDE ( 1 )

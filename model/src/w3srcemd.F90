@@ -201,7 +201,7 @@ CONTAINS
        TAUWY, TAUOX, TAUOY, TAUWIX, TAUWIY, TAUWNX,&
        TAUWNY, PHIAW, CHARN, TWS, PHIOC, WHITECAP, &
        D50, PSIC, BEDFORM , PHIBBL, TAUBBL, TAUICE,&
-       PHICE, TAUOCX, TAUOCY, WNMEAN, DAIR, COEF)
+       PHICE, TAUOCX, TAUOCY, WNMEAN, DAIR, COEF, CD)
     !/
     !/                  +-----------------------------------+
     !/                  | WAVEWATCH III           NOAA/NCEP |
@@ -674,7 +674,7 @@ CONTAINS
          CHARN, TWS, BEDFORM(3), PHIBBL,      &
          TAUBBL(2), TAUICE(2), WHITECAP(4),   &
          TAUWIX, TAUWIY, TAUWNX, TAUWNY,      &
-         ICEF, TAUOCX, TAUOCY, WNMEAN
+         ICEF, TAUOCX, TAUOCY, WNMEAN, CD
     REAL, INTENT(OUT)       :: DTDYN, FCUT
     REAL, INTENT(IN)        :: COEF
     !/
@@ -983,6 +983,7 @@ CONTAINS
     NSTEPS = 0
     PHIAW  = 0.
     CHARN  = 0.
+    CD     = 0.
     TWS    = 0.
     PHINL  = 0.
     PHIBBL = 0.

@@ -440,10 +440,10 @@ MODULE W3ADATMD
     !
     REAL, POINTER         ::  CHARN(:),  CGE(:),  PHIAW(:),       &
          TAUWIX(:),  TAUWIY(:),  TAUWNX(:),  &
-         TAUWNY(:),  WHITECAP(:,:), TWS(:)
+         TAUWNY(:),  WHITECAP(:,:), TWS(:), CD(:)
     REAL, POINTER         :: XCHARN(:), XCGE(:), XPHIAW(:),       &
          XTAUWIX(:), XTAUWIY(:), XTAUWNX(:),  &
-         XTAUWNY(:), XWHITECAP(:,:), XTWS(:)
+         XTAUWNY(:), XWHITECAP(:,:), XTWS(:), XCD(:)
     !
     ! Output fields group 6)
     !
@@ -613,7 +613,7 @@ MODULE W3ADATMD
   !
   REAL, POINTER           :: CHARN(:), CGE(:), PHIAW(:),          &
        TAUWIX(:), TAUWIY(:), TAUWNX(:),     &
-       TAUWNY(:), WHITECAP(:,:), TWS(:)
+       TAUWNY(:), WHITECAP(:,:), TWS(:), CD(:)
   !
   REAL, POINTER           :: SXX(:), SYY(:), SXY(:), TAUOX(:),    &
        TAUOY(:), BHD(:), PHIOC(:),          &
@@ -1191,6 +1191,7 @@ CONTAINS
          WADATS(IMOD)%TAUWIY  (NSEALM),                       &
          WADATS(IMOD)%TAUWNX  (NSEALM),                       &
          WADATS(IMOD)%TAUWNY  (NSEALM),                       &
+         WADATS(IMOD)%CD      (NSEALM),                       &
          WADATS(IMOD)%WHITECAP(NSEALM,4),                     &
          STAT=ISTAT )
     CHECK_ALLOC_STATUS ( ISTAT )
@@ -1204,6 +1205,7 @@ CONTAINS
     WADATS(IMOD)%TAUWNX   = UNDEF
     WADATS(IMOD)%TAUWNY   = UNDEF
     WADATS(IMOD)%WHITECAP = UNDEF
+    WADATS(IMOD)%CD       = UNDEF
 
     call print_memcheck(memunit, 'memcheck_____:'//' W3DIMA 5')
     !
@@ -2892,6 +2894,7 @@ CONTAINS
       PEP    => WADATS(IMOD)%PEP
       !
       CHARN    => WADATS(IMOD)%CHARN
+      CD       => WADATS(IMOD)%CD
       TWS      => WADATS(IMOD)%TWS
       CGE      => WADATS(IMOD)%CGE
       PHIAW    => WADATS(IMOD)%PHIAW

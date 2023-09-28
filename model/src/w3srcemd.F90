@@ -700,7 +700,7 @@ CONTAINS
          HDT, ZWND, FP, DEPTH, TAUSCX, TAUSCY, FHIGI
     ! Scaling factor for SIN, SDS, SNL
     REAL                    :: ICESCALELN, ICESCALEIN, ICESCALENL, ICESCALEDS
-    REAL                    :: EMEAN, FMEAN, AMAX, CD, Z0, SCAT,    &
+    REAL                    :: EMEAN, FMEAN, AMAX, Z0, SCAT,    &
          SMOOTH_ICEDISP
     REAL                    :: WN_R(NK), CG_ICE(NK),ALPHA_LIU(NK), ICECOEF2,&
          R(NK)

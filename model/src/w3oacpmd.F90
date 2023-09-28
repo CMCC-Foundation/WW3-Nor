@@ -1064,6 +1064,11 @@ CONTAINS
         ! Charnock Coefficient (-)
         ID_NB_SND = ID_NB_SND +1
         SND(ID_NB_SND)%CL_FIELD_NAME='WW3_OCHA'
+        !
+      CASE('OCDN')
+        ! Drag Coefficient (-)
+        ID_NB_SND = ID_NB_SND +1
+        SND(ID_NB_SND)%CL_FIELD_NAME='WW3_OCDN'
 #endif
 
         !
